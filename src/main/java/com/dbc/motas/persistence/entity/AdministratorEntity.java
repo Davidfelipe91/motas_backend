@@ -3,12 +3,15 @@ package com.dbc.motas.persistence.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "clients")
-public class ClientEntity {
+@Table(name = "administrators")
+public class AdministratorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+
+    @Column(name = "tp", nullable = false)
+    private Integer tp;
 
     @Column(name = "document_id", unique = true, nullable = false)
     private String documentId;
@@ -31,6 +34,14 @@ public class ClientEntity {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getTp() {
+        return tp;
+    }
+
+    public void setTp(Integer tp) {
+        this.tp = tp;
     }
 
     public String getDocumentId() {
